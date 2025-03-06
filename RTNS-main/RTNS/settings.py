@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'article',
     'events',
     'speakers',
+    'committee',
     'django_extensions',
     'contact_us',
     'channels',
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -89,8 +91,13 @@ WSGI_APPLICATION = 'RTNS.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER':'postgres',
+        'PASSWORD':'qYSHHTblKTnDjrNTPCsowywxZNkreIeN',
+        'HOST': 'postgres.railway.internal',
+        'PORT': '5432', 
+        
     }
 }
 
@@ -134,39 +141,34 @@ STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-
+STATICSTORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 JAZZMIN_SETTINGS = {
     'site_header':"RTNS",
     'site_brand':"RTNS",
-    'site_logo':"Image/PNG logo.png",
+    'site_logo':"Image/RTNSlogobg.png",
     'copyright': "RTNS@copyright",
 }
 
 AUTH_USER_MODEL= "user_auth.User"
 
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'bsf2003459@ue.edu.pk'
+# EMAIL_HOST_PASSWORD = 'vhlaBtha@2'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'bsf2003459@ue.edu.pk'
-EMAIL_HOST_PASSWORD = 'vhlaBtha@2'
-
-ADMIN_EMAIL='adeebhassi@gmail.com'
+# ADMIN_EMAIL='adeebhassi@gmail.com'
 # settings.py
-# ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-eba5.up.railway.app']
-ALLOWED_HOSTS = ['127.0.0.1','192.168.88.100']
-
+# ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-eba5.up.railway.app','web-production-f80d.up.railway.app']
+ALLOWED_HOSTS = ["*"]
 LOGIN_URL = 'user_auth:user_signin'
 
 GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json')
-CSRF_TRUSTED_ORIGINS=['https://web-production-eba5.up.railway.app','https://rtns-uejbd.org']
-
-
+CSRF_TRUSTED_ORIGINS=['https://web-production-eba5.up.railway.app','https://rtns-uejbd.org','https://web-production-93bd.up.railway.app']

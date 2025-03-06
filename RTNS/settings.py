@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -93,9 +94,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER':'postgres',
-        'PASSWORD':'JXdWSpmJYQOOTFGIlIzwhLcpFuqPtsGB',
-        'HOST': 'roundhouse.proxy.rlwy.net',
-        'PORT': '34648',
+        'PASSWORD':'qYSHHTblKTnDjrNTPCsowywxZNkreIeN',
+        'HOST': 'postgres.railway.internal',
+        'PORT': '5432', 
         
     }
 }
@@ -140,7 +141,7 @@ STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-
+STATICSTORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -165,11 +166,9 @@ AUTH_USER_MODEL= "user_auth.User"
 
 # ADMIN_EMAIL='adeebhassi@gmail.com'
 # settings.py
-ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-eba5.up.railway.app']
-
+# ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-eba5.up.railway.app','web-production-f80d.up.railway.app']
+ALLOWED_HOSTS = ["*"]
 LOGIN_URL = 'user_auth:user_signin'
 
 GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json')
-CSRF_TRUSTED_ORIGINS=['https://web-production-eba5.up.railway.app','https://rtns-uejbd.org']
-
-
+CSRF_TRUSTED_ORIGINS=['https://web-production-eba5.up.railway.app','https://rtns-uejbd.org','https://web-production-93bd.up.railway.app']
