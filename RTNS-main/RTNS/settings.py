@@ -166,9 +166,9 @@ AUTH_USER_MODEL= "user_auth.User"
 
 # ADMIN_EMAIL='adeebhassi@gmail.com'
 # settings.py
-# ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-eba5.up.railway.app','web-production-f80d.up.railway.app']
+# ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-eba5.up.railway.app']
 ALLOWED_HOSTS = ["*"]
 LOGIN_URL = 'user_auth:user_signin'
 
 GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json')
-CSRF_TRUSTED_ORIGINS=['https://web-production-eba5.up.railway.app','https://rtns-uejbd.org','https://web-production-93bd.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['https://web-production-eba5.up.railway.app','https://rtns-uejbd.org','https://web-production-83bf.up.railway.app']
