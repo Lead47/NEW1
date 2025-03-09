@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-c5zxqfl__lurt72o+$i!fcta+r8#m(mff3169*53qy(+xt@o-#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # Ensure this is False in production
-
+DEBUG = False
 # Application definition
+
 INSTALLED_APPS = [
     'jazzmin',
     'django.contrib.admin',
@@ -53,7 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -67,7 +66,7 @@ ROOT_URLCONF = 'RTNS.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'template')],
+        'DIRS': [os.path.join(BASE_DIR,'template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,25 +84,27 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'RTNS.wsgi.application'
-ASGI_APPLICATION = 'RTNS.asgi.application'  # Added for Django Channels
 
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'eLrNLvOofALrBiFXUqBdhLikxOZzCZpE',
+        'USER':'postgres',
+        'PASSWORD':'eLrNLvOofALrBiFXUqBdhLikxOZzCZpE',
         'HOST': 'centerbeam.proxy.rlwy.net',
-        'PORT': '15037',
+        'PORT': '15037', 
+        
     }
 }
 
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -122,6 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -133,63 +135,40 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+STATICSTORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 JAZZMIN_SETTINGS = {
-    'site_header': "RTNS",
-    'site_brand': "RTNS",
-    'site_logo': "Image/RTNSlogobg.png",
+    'site_header':"RTNS",
+    'site_brand':"RTNS",
+    'site_logo':"Image/RTNSlogobg.png",
     'copyright': "RTNS@copyright",
 }
 
-AUTH_USER_MODEL = "user_auth.User"
+AUTH_USER_MODEL= "user_auth.User"
 
 
-# Email Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")  # Use environment variable
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")  # Use environment variable
-ADMIN_EMAIL = 'adeebhassi@gmail.com'
+EMAIL_HOST_USER = 'bsf2003459@ue.edu.pk'
+EMAIL_HOST_PASSWORD = 'vhlaBtha@2'
 
-
-# Security Settings
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-X_FRAME_OPTIONS = 'DENY'
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_SECONDS = 3600
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-
-
-# Allowed Hosts
-ALLOWED_HOSTS = ['web-production-eba5.up.railway.app', 'web-production-83bf.up.railway.app', 'rtns-uejbd.org']
-
-# CSRF Trusted Origins
-CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-eba5.up.railway.app',
-    'https://web-production-83bf.up.railway.app',
-    'https://rtns-uejbd.org'
-]
-
-# Login
+ADMIN_EMAIL='adeebhassi@gmail.com'
+# settings.py
+# ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-eba5.up.railway.app',]
+ALLOWED_HOSTS = ["*"]
 LOGIN_URL = 'user_auth:user_signin'
 
-# Google Drive Credentials
 GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json')
+CSRF_TRUSTED_ORIGINS=['https://web-production-eba5.up.railway.app','https://web-production-83bf.up.railway.app','https://rtns-uejbd.org']
