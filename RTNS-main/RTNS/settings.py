@@ -166,8 +166,8 @@ EMAIL_HOST_PASSWORD = 'HA678954'
 
 ADMIN_EMAIL='adeebhassi@gmail.com'
 # settings.py
-# ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-eba5.up.railway.app',]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-eba5.up.railway.app',]
+#ALLOWED_HOSTS = ["*"]
 LOGIN_URL = 'user_auth:user_signin'
 
 GOOGLE_DRIVE_CREDENTIALS = os.path.join(BASE_DIR, 'rtns-413207-168420d2b7cd.json')
