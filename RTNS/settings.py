@@ -162,7 +162,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_SSL = True
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'hussainnawazkb5500@gmail.com'
-EMAIL_HOST_PASSWORD = 'HA678954'
+EMAIL_HOST_PASSWORD = 'aslv yjfi ffnm kafe'
 
 ADMIN_EMAIL='adeebhassi@gmail.com'
 # settings.py
