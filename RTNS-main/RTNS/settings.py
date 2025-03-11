@@ -164,7 +164,7 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = 'hussainnawazkb5500@gmail.com'
 EMAIL_HOST_PASSWORD = 'aslv yjfi ffnm kafe'
 
-ADMIN_EMAIL='adeebhassi@gmail.com'
+ADMIN_EMAIL='nawaztahira708@gmail.com'
 # settings.py
 ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-83bf.up.railway.app',]
 #ALLOWED_HOSTS = ["*"]
