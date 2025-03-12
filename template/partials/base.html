@@ -162,50 +162,7 @@
 
     {% endblock content %}
 
-      <!-- from here also-->
-    <!--Footer Start
-     <div class="container-fluid footer pb-2">
-      <div class="row pt-3">
-          <div class="col-sm-4">
-              <div class="row text-center">
-                  <img class="col-md-5 mx-auto mt-5 footer_rtns_logo" src="{% static 'Image/RTNSlogo.png' %}" alt="">
-                  <div class="d-flex justify-content-center">
-                      <span class="fas fa-phone-alt"></span>
-                      <span class="ms-2">+321 3434789</span>
-                  </div>
-                  <div class="d-flex justify-content-center">
-                      <span class="fas fa-envelope"></span> <span class="ms-2">Email@example.com</span>
-                  </div>
-                  
-              </div>
-          </div>
-          <div class="col-sm-4 text-center my-2">
-              <h3 class="text-white mt-1">Quick Links</h3>
-              <ul class="footer_nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'core:index'%}">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'article:approve_article'%}">Articles</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'events:events'%}">Events</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'speakers:speakers'%}">Speakers</a>
-                </li>
-              </ul>
-          </div>
-          <div class="col-sm-4 text-center my-2">
-              <h3 class="text-center mb-2">Sponsored by</h3>
-              <img class="sponsors_logo me-2" src="{% static 'Image/botonylogo.png' %}" alt=""> 
-               <img class="sponsors_logo mt-2" src="{% static 'Image/ue.png' %}" alt="">
-          </div>
-      </div>
-      <hr>
-      <p class="text-center">rtnscopyright@2023</p>
-  </div> 
-  end here-->
+      
   <style>
     
   </style>
@@ -219,11 +176,11 @@
             <div class="row text-center pt-4">
                 <h5 class="mt-5" style="letter-spacing:2px;font-family: Roboto Slab;font-style: italic;color: rgb(255, 255, 255)">{{footer.title}}</h4><h6 style="letter-spacing:2px;font-family: Roboto Slab;font-style: italic;color:azure">{{footer.year}}</h6>
                 <div class="d-flex justify-content-center">
-                    <span class="fas fa-phone-alt"></span>
+                    <span class="fas fa-phone-alt">+923198350131</span>
                     <span class="ms-2">{{footer.contact}}</span>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <span class="fas fa-envelope"></span> <span class="ms-2">{{footer.email}}</span>
+                    <span class="fas fa-envelope">hussainnawazkb5500@gmail.com</span> <span class="ms-2">{{footer.email}}</span>
                 </div>
                 
             </div>
@@ -231,12 +188,13 @@
         <div class="col-sm-4 text-center">
           {%if sponsor_logo %}
 
-          <p class="text-center my-2" style="font-family: Roboto Slab;font-size: 22px;letter-spacing:1px">Sponsored by</p>
+          <p class="text-center my-2" style="color:black ;font-family: Roboto Slab;font-size: 22px;letter-spacing:1px">Sponsored by</p>
           {%for logo in sponsor_logo%}
           <img class="sponsors_logo mt-2" src="{{logo.image.url}}" alt="">
           {%endfor%}
           {%endif%}
         </div>
+        
         <div class="col-sm-4 text-center">
           <p class="text-center my-2" style="font-family: Roboto Slab;font-size: 22px;letter-spacing:1px">Quick Links</p>
             <!--here-->
