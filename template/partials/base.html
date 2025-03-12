@@ -190,10 +190,10 @@
         <div class="col-sm-4 text-center">
           {%if sponsor_logo %}
 
-          <p class="text-center my-2" style="color:black ;font-family: Roboto Slab;font-size: 22px;letter-spacing:1px">Sponsored by</p>
+          <p class="text-center my-2" style="color:black ;font-family: Roboto Slab;font-size: 22px;">Sponsored by</p>
           {%for logo in sponsor_logo%}
           <img class="sponsors_logo me-2" src="{% static 'Image/botonylogo.png' %}" alt="">
-          <img class="sponsors_logo me-2" src="{% static 'Image/ue.png' %}" alt=""> 
+          <img class="sponsor_logo me-2" src="{% static 'Image/ue.png' %}" alt=""> 
         
           {%endfor%}
           {%endif%}
