@@ -63,7 +63,7 @@
                   </div>
                    <div class="col-md-9">
                     <h3 class="pt-2 pl-1">{{header.title}}</h3>
-                    <!-- <h3 class="pt-2 pl-1">3rd <span style="color: red;">International Conference</span> on <br><span style="color: rgb(75, 167, 243);;"> Recent Trends</span> in <span style="color: green;">Natural Sciences</span>  </h3> -->
+                    <h3 class="pt-2 pl-1">3rd <span style="color: red;">International Conference</span> on <br><span style="color: rgb(75, 167, 243);;"> Recent Trends</span> in <span style="color: green;">Natural Sciences</span>  </h3> 
                    </div> 
                     
                 </div>
@@ -71,9 +71,9 @@
             <div class="col-lg-4 pt-2">
                 <div class="row ">
                     <div class="d-flex justify-content-end">
-                        <!-- <div class="p-0">
+                         <div class="p-0">
                             <img class="header_logo" src="{% static 'Image/botonylogo.png' %}" alt="" srcset="">
-                        </div> -->
+                        </div> 
                         {% for logo in dep_logos%}
                         <div class="p-0">
                             <img class="header_logo" src="{{logo.logo.url}}" alt="" srcset="">
@@ -112,7 +112,7 @@
                       <a class="nav-link" href="{% url 'contact_us:contact'%}">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{% url 'events:event_registration'%}">Registration</a>
+                      <!-- <a class="nav-link" href="{% url 'events:event_registration'%}">Registration</a> -->
                     </li>
                   </ul>
                 </div>
