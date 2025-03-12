@@ -7,6 +7,7 @@
       width: 160px !important;
       height: 145px !important;
     }
+    
   </style>
 
 <head>
@@ -47,6 +48,7 @@
         width: 175px;
         height: 150px;
     } */
+     
     </style>
     <link rel="stylesheet" href="{% static 'css/event.css' %}">
     <script src="{% static 'js/countdown.js' %}"></script>
@@ -63,7 +65,7 @@
                   </div>
                    <div class="col-md-9">
                     <h3 class="pt-2 pl-1">{{header.title}}</h3>
-                    <h3 class="pt-2 pl-1">3rd <span style="color: red;">International Conference</span> on <br><span style="color: rgb(75, 167, 243);;"> Recent Trends</span> in <span style="color: green;">Natural Sciences</span>  </h3> 
+                    <h3 class="pt-2 pl-1"><span style="color: red;">International Conference</span> on <br><span style="color: rgb(75, 167, 243);;"> Recent Trends</span> in <span style="color: green;">Natural Sciences</span>  </h3> 
                    </div> 
                     
                 </div>
@@ -235,8 +237,10 @@
         </div>
         <div class="col-sm-4 text-center">
           <p class="text-center my-2" style="font-family: Roboto Slab;font-size: 22px;letter-spacing:1px">Quick Links</p>
-            <!-- <img class="sponsors_logo me-2" src="{% static 'Image/botonylogo.png' %}" alt=""> -->
-            <ul class="footer_nav ps-0" style="font-family: Roboto Slab;">
+            <!--here-->
+          <img class="sponsors_logo me-2" src="{% static 'Image/botonylogo.png' %}" alt=""> 
+          
+          <ul class="footer_nav ps-0" style="font-family: Roboto Slab;">
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'core:index'%}">Home</a>
               </li>
