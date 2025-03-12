@@ -73,8 +73,10 @@
             <div class="col-lg-4 pt-2">
                 <div class="row ">
                     <div class="d-flex justify-content-end">
-                         <div class="p-0">
+                         <div class="p-0"><!--here-->
                             <img class="header_logo" src="{% static 'Image/botonylogo.png' %}" alt="" srcset="">
+                            <img class="header_logo" src="{% static 'Image/physics-logo.png' %}" alt="" srcset="">
+                            <img class="header_logo" src="{% static 'Image/chemistry-logo.png' %}" alt="" srcset="">
                         </div> 
                         {% for logo in dep_logos%}
                         <div class="p-0">
@@ -190,7 +192,9 @@
 
           <p class="text-center my-2" style="color:black ;font-family: Roboto Slab;font-size: 22px;letter-spacing:1px">Sponsored by</p>
           {%for logo in sponsor_logo%}
-          <img class="sponsors_logo mt-2" src="{{logo.image.url}}" alt="">
+          <img class="sponsors_logo me-2" src="{% static 'Image/botonylogo.png' %}" alt="">
+          <img class="sponsors_logo me-2" src="{% static 'Image/ue.png' %}" alt=""> 
+        
           {%endfor%}
           {%endif%}
         </div>
@@ -198,7 +202,7 @@
         <div class="col-sm-4 text-center">
           <p class="text-center my-2" style="font-family: Roboto Slab;font-size: 22px;letter-spacing:1px">Quick Links</p>
             <!--here-->
-          <img class="sponsors_logo me-2" src="{% static 'Image/botonylogo.png' %}" alt=""> 
+          
           
           <ul class="footer_nav ps-0" style="font-family: Roboto Slab;">
               <li class="nav-item">
