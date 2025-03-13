@@ -151,7 +151,7 @@
   <!-- Patrons Carousel Slider -->
   <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-          {% for patron in patron|slice:"0::2" %}
+          {% for patron in patron|slice:"::2" %}
           <div class="carousel-item {% if forloop.first %}active{% endif %}">
               <div class="row justify-content-center">
                   <div class="col-md-6">
@@ -163,17 +163,20 @@
                           </div>
                       </div>
                   </div>
-                  {% if forloop.counter < patron|length %}
+                  
+                  {% with forloop.counter as index %}
+                  {% if patron|length > index %}
                   <div class="col-md-6">
                       <div class="card" style="width: 18rem; margin: auto;">
-                          <img class="card-img-top" src="{{ patron|next.image.url }}" alt="{{ patron|next.name }}">
+                          <img class="card-img-top" src="{{ patron|slice:index.image.url }}" alt="{{ patron|slice:index.name }}">
                           <div class="card-body text-center">
-                              <h5 class="card-title">{{ patron|next.name }}</h5>
-                              <p class="card-text">{{ patron|next.designation }}</p>
+                              <h5 class="card-title">{{ patron|slice:index.name }}</h5>
+                              <p class="card-text">{{ patron|slice:index.designation }}</p>
                           </div>
                       </div>
                   </div>
                   {% endif %}
+                  {% endwith %}
               </div>
           </div>
           {% endfor %}
@@ -190,6 +193,7 @@
       </button>
   </div>
 </div>
+
 
 
 <!---->
