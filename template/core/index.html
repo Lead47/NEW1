@@ -94,9 +94,11 @@
     <!--Slider End-->
     
     <script type="text/javascript">
-      var countdownTime = document.getElementById('time').value;
+      var countdownTime = document.getElementById('time').value; // Ensure format is yyyy-mm-dd
       if (countdownTime) {
-        $('#countdown_active').countdown(countdownTime, function(event) {
+        var targetDate = new Date(countdownTime + "T00:00:00").getTime(); // Convert to valid DateTime format
+        
+        $('#countdown_active').countdown(targetDate, function(event) {
           $(this).html(event.strftime(
             '<div class="single_count days"><h2>%d</h2><span>Days</span></div>' +
             '<div class="single_count hours"><h2>%H</h2><span>Hours</span></div>' +
