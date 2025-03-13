@@ -7,95 +7,83 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- jQuery (required for Bootstrap 5) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    /* Styling for Carousel */
+    .carousel-item-next.carousel-item-left,
+    .carousel-item-prev.carousel-item-right {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    .carousel-item-next,
+    .active.carousel-item-right {
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+    }
+
+    .carousel-item-prev,
+    .active.carousel-item-left {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+
+    /* Patron Section */
+    .carousel-inner {
+      display: flex;
+      justify-content: center;
+    }
+
+    .carousel-item .card {
+      width: 30%;  /* Set to display 3 items in one row */
+      margin: 10px;
+    }
+
+    .carousel-inner .carousel-item {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Styling Cards */
+    .card {
+      border-radius: 10px;
+      box-shadow: 14px 14px 16px hsla(0, 0%, 0%, .15);
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: 15rem;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* Event Countdown */
+    .countdown {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .countdown h1 {
+      color: black;
+    }
+  </style>
 </head>
-<style>
-  /* Slider Styles */
-  .carousel-item-next.carousel-item-left,
-  .carousel-item-prev.carousel-item-right {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
 
-  .carousel-item-next,
-  .active.carousel-item-right {
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-  }
-
-  .carousel-item-prev,
-  .active.carousel-item-left {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-
-  .card {
-    border-radius: 0px;
-  }
-
-  .card-img-top {
-    width: 100%;
-    height: 20rem;
-    box-shadow: 14px 14px 16px hsla(0, 0%, 0%, .15);
-  }
-
-  .card:hover .card-img-top {
-    transform: scale(1.01);
-  }
-
-  .member-container {
-    position: relative;
-  }
-
-  .member-container:hover .member-card-container {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .member-card-container {
-    position: absolute;
-    bottom: -2rem;
-    left: 1.5rem;
-    box-shadow: 14 14px 16px hsla(0, 0%, 0%, .15);
-    opacity: 0;
-    transition: 1s;
-  }
-
-  /* Custom Styles for Patron Carousel */
-  .carousel-inner .carousel-item {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .carousel-inner .carousel-item .card {
-    flex: 0 0 30%;  /* Each card will take up 30% of the carousel width */
-    margin: 0 5px;  /* Add some space between cards */
-  }
-
-  /* Styling for Cards in Patron Section */
-  .card {
-    border-radius: 10px;
-    box-shadow: 14px 14px 16px hsla(0, 0%, 0%, .15);
-  }
-
-  .card-img-top {
-    width: 100%;
-    height: 15rem;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
-  /* Adjusting Carousel Controls */
-  .carousel-control-prev, .carousel-control-next {
-    z-index: 1;
-  }
-</style>
 <body>
 
-<!-- Slider (with Countdown) Start -->
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<!-- Slider Start -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <ol class="carousel-indicators">
     {% for image in slider_images %}
-    <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
     {% endfor %}
   </ol>
   <div class="carousel-inner">
@@ -105,32 +93,32 @@
     </div>
     {% endfor %}
   </div>
+
   {% if event_time %}
   <div class="countdown">
     <h3><b>{{ event_date_formatted }}</b></h3>
-    <h1 style="color: black;">Event Start in</h1>
+    <h1>Event Starts in</h1>
     <div id="countdown_active"></div>
-    <!-- <a href="{% url 'event_reg:registration'%}" class="btn reg_button">Register</a> -->
   </div>
   {% else %}
   <div class="countdown" style="width: 300px;">
     <h1><b>Stay tuned for future events!</b></h1>
   </div>
   {% endif %}
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+    <span class="visually-hidden">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+    <span class="visually-hidden">Next</span>
   </a>
 </div>
-<input type="hidden" id="time" value="{{ event_date_formatted }} {{ event_time }}">
-<!-- Slider (with Countdown) End -->
+<!-- Slider End -->
 
 <!-- Patron Section Start -->
-<div class="container">
+<div class="container my-5">
   <h1 class="text-center" style="color: rgb(75, 167, 243);">Our Patrons</h1>
 
   <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -147,8 +135,8 @@
     <div class="carousel-inner">
       {% for patron in patron %}
         {% if forloop.counter0|divisibleby:3 %}
-          <div class="carousel-item {% if forloop.first %}active{% endif %}">
-            <div class="row">
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <div class="row">
         {% endif %}
         
         <div class="col-md-4">
@@ -163,8 +151,8 @@
         </div>
 
         {% if forloop.counter0|divisibleby:3 and not forloop.last %}
-            </div> <!-- End of Row -->
-          </div> <!-- End of Carousel Item -->
+          </div> <!-- End of Row -->
+        </div> <!-- End of Carousel Item -->
         {% endif %}
       {% endfor %}
     </div>
@@ -197,21 +185,17 @@
 </div>
 <!-- Gallery Section End -->
 
+<!-- Countdown Script -->
 <script type="text/javascript">
   var countdownTime = document.getElementById('time').value;
   if (countdownTime) {
     $('#countdown_active').countdown(countdownTime, function(event) {
-      $(this).html(event.strftime('<div class="single_count days"><h2>{{ remaining_days }}</h2><span>Days</span></div><div class="single_count hours "><h2>%H</h2><span>Hours</span></div><div class="single_count min"><h2>%M</h2><span>Min</span></div><div class="single_count sec"><h2>%S</h2><span>Sec</span></div>'));
+      $(this).html(event.strftime('<div class="single_count days"><h2>{{ remaining_days }}</h2><span>Days</span></div><div class="single_count hours"><h2>%H</h2><span>Hours</span></div><div class="single_count min"><h2>%M</h2><span>Min</span></div><div class="single_count sec"><h2>%S</h2><span>Sec</span></div>'));
     });
   } else {
     console.log("Nothing to countdown");
   }
 </script>
-
-<!-- Bootstrap and jQuery CDN -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
