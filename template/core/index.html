@@ -94,18 +94,23 @@
     <!--Slider End-->
     
     <script type="text/javascript">
-      var countdownTime = document.getElementById('time').value;
+      // Convert event date to a proper ISO string for JavaScript compatibility
+      var countdownTime = "2025-10-11T00:00:00"; // Replace Oct. 11, 2025 with this format
+    
       if (countdownTime) {
         $('#countdown_active').countdown(countdownTime, function(event) {
-          $(this).html(event.strftime('<div class="single_count days"><h2>%d</h2><span>Days</span></div>' +
-                                       '<div class="single_count hours"><h2>%H</h2><span>Hours</span></div>' +
-                                       '<div class="single_count min"><h2>%M</h2><span>Minutes</span></div>' +
-                                       '<div class="single_count sec"><h2>%S</h2><span>Seconds</span></div>'));
+          $(this).html(event.strftime(
+            '<div class="single_count days"><h2>%d</h2><span>Days</span></div>' +
+            '<div class="single_count hours"><h2>%H</h2><span>Hours</span></div>' +
+            '<div class="single_count min"><h2>%M</h2><span>Minutes</span></div>' +
+            '<div class="single_count sec"><h2>%S</h2><span>Seconds</span></div>'
+          ));
         });
       } else {
         console.log("Nothing to countdown!");
       }
     </script>
+    
     
 
     <!--RTNS About Section-->
