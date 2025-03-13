@@ -167,40 +167,43 @@
     <!--Patrons Section-->
     <div class="container">
       <h1 class="text-center" style="color: rgb(75, 167, 243);">Our Patrons</h1>
-  
+    
       <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-              {% for patron in patron %}
-                  {% if forloop.counter0|divisibleby:3 %}
-                  <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                      <div class="d-flex justify-content-center patrons-container">
-                  {% endif %}
-  
-                  <div class="card patron-card">
-                      <img class="card-img-top" src="{{ patron.image.url }}" alt="Patron Image">
-                      <div class="card-body">
-                          <h5 class="card-title" style="color: rgb(75, 167, 243);">{{ patron.name }}</h5>
-                          <h6 class="card-subtitle mb-2">{{ patron.patron_type }}</h6>
-                          <p class="card-text">{{ patron.designation }}</p>
-                      </div>
-                  </div>
-  
-                  {% if forloop.counter0|divisibleby:3 or forloop.last %}
-                      </div>
-                  </div>
-                  {% endif %}
-              {% endfor %}
-          </div>
-  
-          <!-- Controls -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#patronCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#patronCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-          </button>
+        <div class="carousel-inner">
+          {% for patron in patrons %}
+            {% if forloop.counter0|divisibleby:3 %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+              <div class="row justify-content-center">
+            {% endif %}
+    
+            <div class="col-md-4">
+              <div class="card patron-card">
+                <img class="card-img-top" src="{{ patron.image.url }}" alt="Patron Image">
+                <div class="card-body text-center">
+                  <h5 class="card-title" style="color: rgb(75, 167, 243);">{{ patron.name }}</h5>
+                  <h6 class="card-subtitle mb-2">{{ patron.patron_type }}</h6>
+                  <p class="card-text">{{ patron.designation }}</p>
+                </div>
+              </div>
+            </div>
+    
+            {% if forloop.counter0|divisibleby:3 or forloop.last %}
+              </div>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+    
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#patronCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#patronCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
       </div>
-  </div>
+    </div>
+    
   
 <!--Patrons Section end-->
     
