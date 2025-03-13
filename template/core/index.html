@@ -118,14 +118,13 @@
     </section>
     <!--RTNS About Section End-->
 
-    <!--Patrons Section-->
-   <!-- Patrons Section -->
+ <!-- Patrons Section -->
 <div class="container">
   <h1 class="text-center" style="color: rgb(75, 167, 243);">Our Patrons</h1>
 
   <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-      {% for patron in patrons|slice:"0::2" %} 
+      {% for patron in patrons|slice:"0::4" %} 
       <button type="button" data-bs-target="#patronCarousel" data-bs-slide-to="{{ forloop.counter0 }}" 
         class="{% if forloop.first %}active{% endif %}" 
         aria-current="{% if forloop.first %}true{% endif %}" 
@@ -134,7 +133,7 @@
     </div>
 
     <div class="carousel-inner">
-      {% for patron_group in patrons|slice:":2" %}
+      {% for patron_group in patrons|slice:":4" %}
       <div class="carousel-item {% if forloop.first %}active{% endif %}">
         <div class="row justify-content-center">
           {% for patron in patron_group %}
@@ -165,6 +164,7 @@
   </div>
 </div>
 <!-- Patrons Section End -->
+
 
     
     <!--Gallery Section-->
