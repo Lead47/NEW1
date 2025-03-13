@@ -123,34 +123,51 @@
   <h1 class="text-center" style="color: rgb(75, 167, 243);">Our Patrons</h1>
 
   <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      {% for patron in patrons|slice:"0::4" %} 
-      <button type="button" data-bs-target="#patronCarousel" data-bs-slide-to="{{ forloop.counter0 }}" 
-        class="{% if forloop.first %}active{% endif %}" 
-        aria-current="{% if forloop.first %}true{% endif %}" 
-        aria-label="Slide {{ forloop.counter }}"></button>
-     
-    </div>
-
     <div class="carousel-inner">
-      
-      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <div class="carousel-item active">
         <div class="row justify-content-center">
-          
           <div class="col-md-6">
             <div class="card" style="width: 18rem; margin: auto;">
-              <img class="card-img-top" src="{{ patron.image.url }}" alt="Patron Image">
+              <img class="card-img-top" src="patron1.jpg" alt="Patron 1">
               <div class="card-body text-center">
-                <h5 class="card-title" style="font-family: serif; color: rgb(75, 167, 243);">{{ patron.name }}</h5>
-                <h6 class="card-subtitle mb-2" style="font-family: serif;">{{ patron.patron_type }}</h6>
-                <p class="card-text" style="font-family: sans-serif;">{{ patron.designation }}</p>
+                <h5 class="card-title">Patron 1</h5>
+                <p class="card-text">Designation 1</p>
               </div>
             </div>
           </div>
-          
+          <div class="col-md-6">
+            <div class="card" style="width: 18rem; margin: auto;">
+              <img class="card-img-top" src="patron2.jpg" alt="Patron 2">
+              <div class="card-body text-center">
+                <h5 class="card-title">Patron 2</h5>
+                <p class="card-text">Designation 2</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-     
+      <div class="carousel-item">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card" style="width: 18rem; margin: auto;">
+              <img class="card-img-top" src="patron3.jpg" alt="Patron 3">
+              <div class="card-body text-center">
+                <h5 class="card-title">Patron 3</h5>
+                <p class="card-text">Designation 3</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card" style="width: 18rem; margin: auto;">
+              <img class="card-img-top" src="patron4.jpg" alt="Patron 4">
+              <div class="card-body text-center">
+                <h5 class="card-title">Patron 4</h5>
+                <p class="card-text">Designation 4</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <button class="carousel-control-prev" type="button" data-bs-target="#patronCarousel" data-bs-slide="prev">
@@ -163,7 +180,7 @@
     </button>
   </div>
 </div>
-<!-- Patrons Section End -->
+
 
 
     
