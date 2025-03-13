@@ -142,48 +142,201 @@
     <!--RTNS about Section end-->
     <!--Patrons Section-->
     <div class="container">
-      <h1 class="text-center" style="color: rgb(75, 167, 243);">Our Patrons</h1>
-  
-      <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
-          <!-- Carousel Indicators -->
-          <div class="carousel-indicators">
-              {% for patron in patron %}
-                  <button type="button" data-bs-target="#patronCarousel" data-bs-slide-to="{{ forloop.counter0 }}" 
-                  class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" 
-                  aria-label="Slide {{ forloop.counter }}"></button>
-              {% endfor %}
-          </div>
-  
-          <!-- Carousel Items -->
-          <div class="carousel-inner">
-              {% for patron in patron %}
-                  <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                      <div class="d-flex justify-content-center">
-                          <div class="card" style="width: 18rem;">
-                              <img class="card-img-top" src="{{ patron.image.url }}" alt="Patron Image">
-                              <div class="card-body text-center">
-                                  <h5 class="card-title" style="font-family: serif; color: rgb(75, 167, 243);">{{ patron.name }}</h5>
-                                  <h6 class="card-subtitle mb-2" style="font-family: serif;">{{ patron.patron_type }}</h6>
-                                  <p class="card-text" style="font-family: sans-serif;">{{ patron.designation }}</p>
+    <h1 class="text-center" style="color: rgb(75, 167, 243);">Our Patrons</h1>
+
+    <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            {% for patron in patron %}
+                <button type="button" data-bs-target="#patronCarousel" data-bs-slide-to="{{ forloop.counter0 }}" 
+                class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" 
+                aria-label="Slide {{ forloop.counter }}"></button>
+            {% endfor %}
+        </div>
+
+        <!-- Carousel Items -->
+        <div class="carousel-inner">
+            {% for patron in patron %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <div class="d-flex justify-content-center">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{ patron.image.url }}" alt="Patron Image">
+                            <div class="card-body text-center">
+                                <h5 class="card-title" style="font-family: serif; color: rgb(75, 167, 243);">{{ patron.name }}</h5>
+                                <h6 class="card-subtitle mb-2" style="font-family: serif;">{{ patron.patron_type }}</h6>
+                                <p class="card-text" style="font-family: sans-serif;">{{ patron.designation }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#patronCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#patronCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<div class="container">
+    <h1 class="text-center" style="color: rgb(75, 167, 243);">Our Patrons</h1>
+    <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            {% for patron in patron|slice:":3" %}
+                <button type="button" data-bs-target="#patronCarousel" data-bs-slide-to="{{ forloop.counter0 }}" 
+                class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" 
+                aria-label="Slide {{ forloop.counter }}"></button>
+            {% endfor %}
+        </div>
+
+        <!-- Carousel Items -->
+        <div class="carousel-inner">
+            {% for patrons in patron|slice:":3" %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <div class="row">
+                        {% for patron in patrons %}
+                            <div class="col-md-4">
+                                <div class="card" style="width: 18rem;">
+                                    <img class="card-img-top" src="{{ patron.image.url }}" alt="Patron Image">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title" style="font-family: serif; color: rgb(75, 167, 243);">
+                                            {{ patron.name }}
+                                        </h5>
+                                        <h6 class="card-subtitle mb-2" style="font-family: serif;">
+                                            {{ patron.patron_type }}
+                                        </h6>
+                                        <p class="card-text" style="font-family: sans-serif;">
+                                            {{ patron.designation }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#patronCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#patronCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<div class="container">
+  <h1 class="text-center" style="color: rgb(75, 167, 243);">Our Patrons</h1>
+  <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators">
+          {% for patron in patron|slice:":3" %}
+              <button type="button" data-bs-target="#patronCarousel" data-bs-slide-to="{{ forloop.counter0 }}" 
+              class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" 
+              aria-label="Slide {{ forloop.counter }}"></button>
+          {% endfor %}
+      </div>
+
+      <!-- Carousel Items -->
+      <div class="carousel-inner">
+          {% for patrons in patron|slice:":3" %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                  <div class="row">
+                      {% for patron in patrons %}
+                          <div class="col-md-4">
+                              <div class="card" style="width: 18rem;">
+                                  <img class="card-img-top" src="{{ patron.image.url }}" alt="Patron Image">
+                                  <div class="card-body text-center">
+                                      <h5 class="card-title" style="font-family: serif; color: rgb(75, 167, 243);">
+                                          {{ patron.name }}
+                                      </h5>
+                                      <h6 class="card-subtitle mb-2" style="font-family: serif;">
+                                          {{ patron.patron_type }}
+                                      </h6>
+                                      <p class="card-text" style="font-family: sans-serif;">
+                                          {{ patron.designation }}
+                                      </p>
+                                  </div>
                               </div>
                           </div>
-                      </div>
+                      {% endfor %}
                   </div>
-              {% endfor %}
-          </div>
-  
-          <!-- Carousel Controls -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#patronCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#patronCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-          </button>
+              </div>
+          {% endfor %}
       </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#patronCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#patronCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
   </div>
-  
+</div>
+<div class="container">
+  <h1 class="text-center" style="color: rgb(75, 167, 243);">Our Patrons</h1>
+  <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators">
+          {% for patron in patron|slice:":3" %}
+              <button type="button" data-bs-target="#patronCarousel" data-bs-slide-to="{{ forloop.counter0 }}" 
+              class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" 
+              aria-label="Slide {{ forloop.counter }}"></button>
+          {% endfor %}
+      </div>
+
+      <!-- Carousel Items -->
+      <div class="carousel-inner">
+          {% for patrons in patron|slice:":3" %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                  <div class="row">
+                      {% for patron in patrons %}
+                          <div class="col-md-4">
+                              <div class="card" style="width: 18rem;">
+                                  <img class="card-img-top" src="{{ patron.image.url }}" alt="Patron Image">
+                                  <div class="card-body text-center">
+                                      <h5 class="card-title" style="font-family: serif; color: rgb(75, 167, 243);">
+                                          {{ patron.name }}
+                                      </h5>
+                                      <h6 class="card-subtitle mb-2" style="font-family: serif;">
+                                          {{ patron.patron_type }}
+                                      </h6>
+                                      <p class="card-text" style="font-family: sans-serif;">
+                                          {{ patron.designation }}
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                      {% endfor %}
+                  </div>
+              </div>
+          {% endfor %}
+      </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#patronCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#patronCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+</div>
+
 </body>
 </body>
 
