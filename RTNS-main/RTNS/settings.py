@@ -166,7 +166,7 @@ EMAIL_HOST_PASSWORD = 'aslv yjfi ffnm kafe'
 
 ADMIN_EMAIL='nawaztahira708@gmail.com'
 # settings.py
-ALLOWED_HOSTS = ['rtns-uejbd.org','web-production-83bf.up.railway.app',]
+ALLOWED_HOSTS = ['www.rtns-uejbd.org','web-production-83bf.up.railway.app',]
 #ALLOWED_HOSTS = ["*"]
 LOGIN_URL = 'user_auth:user_signin'
 
