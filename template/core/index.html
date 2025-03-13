@@ -125,55 +125,29 @@
     <!--RTNS About Section End-->
 
  <!-- Patrons Section -->
-<div class="container">
+ <div class="container">
   <h1 class="text-center" style="color: rgb(75, 167, 243);">Our Patrons</h1>
 
+  <!-- Carousel Slider Section -->
   <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      {% for patron_group in patrons|slice:":2" %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
         <div class="row justify-content-center">
+          {% for patron in patron_group %}
           <div class="col-md-6">
             <div class="card" style="width: 18rem; margin: auto;">
-              <img class="card-img-top" src="patron1.jpg" alt="Patron 1">
+              <img class="card-img-top" src="{{ patron.image_url }}" alt="{{ patron.name }}">
               <div class="card-body text-center">
-                <h5 class="card-title">Patron 1</h5>
-                <p class="card-text">Designation 1</p>
+                <h5 class="card-title">{{ patron.name }}</h5>
+                <p class="card-text">{{ patron.designation }}</p>
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="card" style="width: 18rem; margin: auto;">
-              <img class="card-img-top" src="patron2.jpg" alt="Patron 2">
-              <div class="card-body text-center">
-                <h5 class="card-title">Patron 2</h5>
-                <p class="card-text">Designation 2</p>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <div class="card" style="width: 18rem; margin: auto;">
-              <img class="card-img-top" src="patron3.jpg" alt="Patron 3">
-              <div class="card-body text-center">
-                <h5 class="card-title">Patron 3</h5>
-                <p class="card-text">Designation 3</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card" style="width: 18rem; margin: auto;">
-              <img class="card-img-top" src="patron4.jpg" alt="Patron 4">
-              <div class="card-body text-center">
-                <h5 class="card-title">Patron 4</h5>
-                <p class="card-text">Designation 4</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
 
     <button class="carousel-control-prev" type="button" data-bs-target="#patronCarousel" data-bs-slide="prev">
@@ -185,7 +159,27 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-</div>
+
+  <!-- Detailed Patron Section -->
+  <div class="container px-5 py-5 d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
+      {% for patron in patrons %}
+      <div class="col-md-6 col-lg-4 col-sm-12 mb-5">
+        <div class="member-container">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ patron.image_url }}" alt="{{ patron.name }}">
+          </div>
+          <div class="card member-card-container p-2" style="width: 15rem;">
+            <h5 class="card-title" style="font-family: serif; color: rgb(75, 167, 243);">{{ patron.name }}</h5>
+            <h6 class="card-title" style="font-family: serif;">{{ patron.patron_type }}</h6>
+            <p class="card-text" style="font-family: sans-serif;">{{ patron.designation }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+ </div>
 
 
 <!---->
