@@ -97,12 +97,16 @@
       var countdownTime = document.getElementById('time').value;
       if (countdownTime) {
         $('#countdown_active').countdown(countdownTime, function(event) {
-          $(this).html(event.strftime('<div class="single_count days"><h2>%w</h2><span>Weeks</span></div><div class="single_count days"><h2>%d</h2><span>Days</span></div><div class="single_count hours"><h2>%H</h2><span>Hours</span></div><div class="single_count min"><h2>%M</h2><span>Minutes</span></div><div class="single_count sec"><h2>%S</h2><span>Seconds</span></div>'));
+          $(this).html(event.strftime('<div class="single_count days"><h2>%d</h2><span>Days</span></div>' +
+                                       '<div class="single_count hours"><h2>%H</h2><span>Hours</span></div>' +
+                                       '<div class="single_count min"><h2>%M</h2><span>Minutes</span></div>' +
+                                       '<div class="single_count sec"><h2>%S</h2><span>Seconds</span></div>'));
         });
       } else {
         console.log("Nothing to countdown!");
       }
     </script>
+    
 
     <!--RTNS About Section-->
     <section id="about_rtns" class="about_sec p-3">
@@ -182,7 +186,7 @@
 </div>
 
 
-
+<!---->
     
     <!--Gallery Section-->
     <div class="container">
