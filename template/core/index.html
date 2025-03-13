@@ -9,50 +9,96 @@
   <title>Home</title>
 </head>
 <style>
-  .carousel-item-next.carousel-item-left,
-  .carousel-item-prev.carousel-item-right {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-  }
+/* Fix Bootstrap Carousel Transitions */
+.carousel-item-next.carousel-item-left,
+.carousel-item-prev.carousel-item-right {
+    transform: translate3d(0, 0, 0);
+}
 
-  .carousel-item-next,
-  .active.carousel-item-right {
-      -webkit-transform: translate3d(100%, 0, 0);
-      transform: translate3d(100%, 0, 0);
-  }
+.carousel-item-next,
+.active.carousel-item-right {
+    transform: translate3d(100%, 0, 0);
+}
 
-  .carousel-item-prev,
-  .active.carousel-item-left {
-      -webkit-transform: translate3d(-100%, 0, 0);
-      transform: translate3d(-100%, 0, 0);
-  }
+.carousel-item-prev,
+.active.carousel-item-left {
+    transform: translate3d(-100%, 0, 0);
+}
 
-  .card {
-    border-radius: 0px;
-  }
-  .card-img-top {
+/* General Card Styling */
+.card {
+    border-radius: 12px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Image Styling */
+.card-img-top {
     width: 100%;
-    height: 20rem;
-    box-shadow: 14px 14px 16px hsla(0, 0%, 0%, .15);
-  }
-  .card:hover .card-img-top {
-    transform: scale(1.01);
-  }
-  .member-container {
+    height: 18rem; /* Adjusted height for better proportion */
+    object-fit: cover; /* Ensures images fit properly */
+    box-shadow: 5px 5px 15px hsla(0, 0%, 0%, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* Member Card Hover Effect */
+.member-container {
     position: relative;
-  }
-  .member-container:hover .member-card-container {
+}
+
+.member-container:hover .member-card-container {
     opacity: 1;
     visibility: visible;
-  }
-  .member-card-container {
+}
+
+.member-card-container {
     position: absolute;
     bottom: -2rem;
     left: 1.5rem;
-    box-shadow: 14px 14px 16px hsla(0, 0%, 0%, .15);
+    box-shadow: 5px 5px 15px hsla(0, 0%, 0%, 0.15);
     opacity: 0;
-    transition: 1s;
-  }
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateY(10px);
+}
+
+.member-container:hover .member-card-container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Patron Section Styling */
+.patrons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.patron-card {
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: 300px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 15rem;
+    }
+    .patron-card {
+        flex: 1 1 100%; /* Stack cards on smaller screens */
+    }
+}
 </style>
 <body>
 
@@ -119,56 +165,43 @@
     <!--RTNS About Section End-->
 
     <!--Patrons Section-->
-<!--Patrons Section-->
-<div class="container">
-  <h1 class="text-center" style="color: rgb(75, 167, 243);">Our Patrons</h1>
-
-  <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
-      <!-- Carousel Indicators -->
-      <div class="carousel-indicators">
-          {% for patron in patron %}
-              <button type="button" data-bs-target="#patronCarousel" data-bs-slide-to="{{ forloop.counter0|divisibleby:3 }}" 
-              class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" 
-              aria-label="Slide {{ forloop.counter }}"></button>
-          {% endfor %}
-      </div>
-
-      <!-- Carousel Items (Display 3 patrons at a time) -->
-      <div class="carousel-inner">
-          {% for patron in patron %}
-              {% if forloop.counter0|divisibleby:3 %}
-              <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                  <div class="d-flex justify-content-center">
-              {% endif %}
-
-              <!-- Single Patron -->
-              <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="{{ patron.image.url }}" alt="Patron Image">
-                  <div class="card-body text-center">
-                      <h5 class="card-title" style="font-family: serif; color: rgb(75, 167, 243);">{{ patron.name }}</h5>
-                      <h6 class="card-subtitle mb-2" style="font-family: serif;">{{ patron.patron_type }}</h6>
-                      <p class="card-text" style="font-family: sans-serif;">{{ patron.designation }}</p>
+    <div class="container">
+      <h1 class="text-center" style="color: rgb(75, 167, 243);">Our Patrons</h1>
+  
+      <div id="patronCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+              {% for patron in patron %}
+                  {% if forloop.counter0|divisibleby:3 %}
+                  <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                      <div class="d-flex justify-content-center patrons-container">
+                  {% endif %}
+  
+                  <div class="card patron-card">
+                      <img class="card-img-top" src="{{ patron.image.url }}" alt="Patron Image">
+                      <div class="card-body">
+                          <h5 class="card-title" style="color: rgb(75, 167, 243);">{{ patron.name }}</h5>
+                          <h6 class="card-subtitle mb-2">{{ patron.patron_type }}</h6>
+                          <p class="card-text">{{ patron.designation }}</p>
+                      </div>
                   </div>
-              </div>
-
-              {% if forloop.counter0|divisibleby:3 or forloop.last %}
+  
+                  {% if forloop.counter0|divisibleby:3 or forloop.last %}
+                      </div>
                   </div>
-              </div>
-              {% endif %}
-          {% endfor %}
+                  {% endif %}
+              {% endfor %}
+          </div>
+  
+          <!-- Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#patronCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#patronCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+          </button>
       </div>
-
-      <!-- Carousel Controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#patronCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#patronCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-      </button>
   </div>
-</div>
+  
 <!--Patrons Section end-->
     
     <!--Gallery Section-->
