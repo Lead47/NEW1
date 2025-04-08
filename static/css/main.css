@@ -3,10 +3,10 @@ body{
 }
 .header-logo{
     height: 100px;
-    width: 150px;
+    width: 100px;
 }
 .header_logo{
-    max-width: 110px;
+    max-width: 100px;
     height: 100px;
 }
 div.sticky{
