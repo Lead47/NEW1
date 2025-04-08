@@ -83,8 +83,10 @@
       </div>
       {% if event_time %}
       <div class="countdown">
-        <h3><b>{{ event_date_formatted }}</b></h3>
-        <h1>Event Start in</h1>
+        <h3 style="font-size: 24px;"><b>{{ event_date_formatted }}</b></h3>
+
+        <h1 style="color: white; border: 2px solid gray; padding: 10px; display: inline-block;">Event Start in</h1>
+
         <div id="countdown_active"></div>
         <a href="{% url 'event_reg:registration'%}" class="btn reg_button">Register</a>
       </div>
@@ -148,6 +150,7 @@
                 <img class="card-img-top" src="{{patron.image.url}}" alt="Card image cap" >
                 
             </div>
+            
             <div class="card member-card-container p-2" style="width: 15rem;" >
                 <h5 class="card-title" style="font-family: serif;color:rgb(75, 167, 243);">{{patron.name}}</h5>
                 <h6 class="card-title" style="font-family: serif;">{{patron.patron_type}}</h6>
