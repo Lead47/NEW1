@@ -5,14 +5,10 @@ body{
     height: 100px;
     width: 150px;
 }
-.header_logo {
-    width: 150px;
+.header_logo{
+    max-width: 110px;
     height: 100px;
-    margin: 5px; /* Adds spacing around each logo */
-    display: inline-block; /* Ensures proper alignment in a row */
-    vertical-align: top; /* Aligns all logos to the top */
 }
-
 div.sticky{
     position: -webkit-sticky;
     position: sticky;
