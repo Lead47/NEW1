@@ -76,7 +76,7 @@
                          <div class="p-0"><!--here-->
                           
                           <img class="header_logo" src="{% static 'Image/zoology.jpg' %}" alt="" srcset="">
-                            <img class="header_logo" src="{% static 'Image/Botany.png' %}" alt="" srcset="">
+                            <img class="header_logo" src="{% static 'Image/Botany2.png' %}" alt="" srcset="">
                             <img class="header_logo" src="{% static 'Image/Physics.png' %}" alt="" srcset="">
                             <img class="header_logo" src="{% static 'Image/Chemistry.png' %}" alt="" srcset="">
                             
@@ -124,7 +124,7 @@
                   </ul>
                 </div>
                   <div class="d-flex account_dropdown">
-                  <a href="" class="btn dropbtn">Account</a>
+                 <!---- <a href="" class="btn dropbtn">Account</a> -->
                   <div class="drop_list">
                     {%if user.is_authenticated%}
                     <a href="{% url 'user_auth:user_dashboard'%}">My Abstract</a>
